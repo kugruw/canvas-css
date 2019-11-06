@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" draggable="true">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas CSS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="canvas"></div>
+    <div class="option">
+        <h2 id="tog-pref" class="cp">Preferences</h2>
+        <div class="modal hide" id="preferences">
+            <p>Settings</p>
+            <ul>
+                <li>
+                    <label for="pw">Pen width: </label>
+                    <input type="radio" id="pw" name="pw" value="25" checked>Small
+                    <input type="radio" id="pw" name="pw" value="50">Medium
+                    <input type="radio" id="pw" name="pw" value="100">Big
+                </li>
+                <li>
+                    <label for="pc">Pen color: </label>
+                    <input type="radio" id="pc" name="pc" value="#000" checked>Black
+                    <input type="radio" id="pc" name="pc" value="#fff">White
+                    <input type="radio" id="pc" name="pc" value="random">Random
+                </li>
+                <li>
+                    <label for="pbg">Background: </label>
+                    <input type="radio" id="pbg" name="pbg" value="#000">Black
+                    <input type="radio" id="pbg" name="pbg" value="#fff" checked>White
+                    <input type="radio" id="pbg" name="pbg" value="random">Random
+                </li>
+                <li>
+                    <label for="ps">Scale: </label>
+                    <input type="range" name="ps" id="ps">
+                </li>
+            </ul>
+            <p>Keyboard Shortcut</p>
+            <ul>
+                <li>Clear canvas: <code>Space</code></li>
+                <li>Undo: <code>Z</code></li>
+            </ul>
+        </div>
+    </div>
+    <script src="assets/script/ml.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

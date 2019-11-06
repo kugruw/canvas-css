@@ -1,0 +1,53 @@
+html, body, .window{
+    margin: 0;
+    height: 100%;
+}
+
+body{
+    position: fixed;
+    transition: background-color .3s;
+}
+
+.bulat{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.option{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    margin: 20px;
+    background-color: dodgerblue;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 3px;
+    box-shadow: 0px 0px 12px gray;
+    transition: 1s;
+}
+
+h2{
+    text-align: center;
+    margin: 10px 15px;
+}
+
+li{
+    list-style-type: none;
+    margin: 5px 0;
+}
+
+.modal{
+    color: #000;
+    background-color: #fff;
+    padding: 10px 25px;
+}
+
+.hide{
+    display: none;
+}
+
+.cp{
+    cursor: pointer;
+}
