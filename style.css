@@ -1,11 +1,17 @@
-html, body, .window{
+html, body, .canvas{
     margin: 0;
     height: 100%;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 body{
     position: fixed;
     transition: background-color .3s;
+}
+
+.canvas{
+    position: relative;
 }
 
 .bulat{
@@ -50,4 +56,21 @@ li{
 
 .cp{
     cursor: pointer;
+}
+
+.abs-ctr{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: .6;
+}
+
+.fade{
+    animation: fade .3s;
+}
+
+@keyframes fade{
+    from{opacity: 0;}
+    to{opacity: 1;}
 }

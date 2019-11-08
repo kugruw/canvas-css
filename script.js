@@ -1,38 +1,47 @@
 (function () {
     const elm = {
+        dragArea: s('html'),
+        canvas: s('.canvas'),
         pref: s('#tog-pref'),
-        modal: s('#preferences')
+        modal: s('#preferences'),
+        mt: s('#main-title')
     };
+
+    function onDrawListener() {
+        setInterval(() => {
+            if(elm.canvas.childElementCount == 0) elm.mt.show();
+            else elm.mt.hide();
+        }, 100);
+    }
 
     function Bulat() {
         this.width = 25;
         this.color = '#000';
         this.create = (x, y) => {
-            const elm = document.createElement('div');
-            elm.classList.add('bulat');
+            const bulat = document.createElement('div');
+            bulat.classList.add('bulat');
 
-            if(this.color == 'random') elm.style.backgroundColor = randomColor();
-            else elm.style.backgroundColor = this.color;
+            if(this.color == 'random') bulat.style.backgroundColor = randomColor();
+            else bulat.style.backgroundColor = this.color;
 
-            elm.style.width = this.width + 'px';
-            elm.style.height = this.width + 'px';
-            elm.style.left = x + 'px';
-            elm.style.top = y + 'px';
-            s('.canvas').appendChild(elm);
+            bulat.style.width = this.width + 'px';
+            bulat.style.height = this.width + 'px';
+            bulat.style.left = x + 'px';
+            bulat.style.top = y + 'px';
+            elm.canvas.appendChild(bulat);
         };
         this.remove = () => ss('.bulat').forEach(elm => elm.remove());
         this.removeLast = () => {
-            const elm = s('.canvas').lastElementChild;
-            if(elm != null) elm.remove();
+            const last = elm.canvas.lastElementChild;
+            if(last != null) last.remove();
         }
     }
 
     const b = new Bulat();
-    window.onclick = e => b.create(e.x, e.y);
+    elm.canvas.klik(e => b.create(e.x, e.y));
 
-    s('html').ondrag = e => {
+    elm.canvas.ondrag = e => {
         if(e.x != 0 && e.y != 0) b.create(e.x, e.y);
-        return false;
     }
 
     //Pen width onchange
@@ -43,6 +52,9 @@
 
     elm.pref.onclick = () => elm.modal.classList.toggle('hide');
     
-    getKey('KeyZ', b.removeLast);
-    getKey('Space', b.remove);
+    getKey('z', b.removeLast);
+    getKey(' ', b.remove);
+    onDrawListener();
 })();
+
+//Perbaiki shadow

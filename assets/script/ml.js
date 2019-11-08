@@ -10,6 +10,9 @@ Object.prototype.show = function () {
 Object.prototype.hide = function () {
     this.classList.add('hide')
 }
+Object.prototype.klik = function (callback) {
+    this.addEventListener('click', callback)
+};
 String.prototype.deleteCookie = function () {
     document.cookie = this + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
 }
@@ -25,9 +28,11 @@ String.prototype.getCookie = function () {
     return null;
 }
 
-function getKey(code, callback) {
+function getKey(key, callback) {
     window.addEventListener('keydown', e => {
-        if (e.code == code) {
+        if(key == undefined) log(e);
+        else if(e.key == key) {
+            e.preventDefault();
             callback();
         }
     });
